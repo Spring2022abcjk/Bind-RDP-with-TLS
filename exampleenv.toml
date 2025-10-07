@@ -1,5 +1,5 @@
 domain = "example.com"
-pfxFolder = "D:\\Certs\\rdp_varhub"
+pfxFolder = "D:\\Certs\\your_domain"
 pfxFile = "your_domain.pfx"
 pfxPassword = "yourstrongpassWORd!1234567"
 wacsPath = "D:\\wacs.exe"
