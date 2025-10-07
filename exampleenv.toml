@@ -1,0 +1,7 @@
+domain = "example.com"
+pfxFolder = "D:\\Certs\\rdp_varhub"
+pfxFile = "your_domain.pfx"
+pfxPassword = "yourstrongpassWORd!1234567"
+wacsPath = "D:\\wacs.exe"
+cfEnvVarName = "CLOUDFLARE_API_TOKEN"
+email = "your@example.com"
