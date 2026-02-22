@@ -1,3 +1,8 @@
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+$PSDefaultParameterValues['*:ErrorAction'] = 'Stop'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 function Set-RdpCertBinding {
     param(
         [Parameter(Mandatory)]
