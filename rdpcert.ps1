@@ -5,6 +5,7 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $PSDefaultParameterValues['*:ErrorAction'] = 'Stop'
+$InformationPreference = "Continue"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 <#
@@ -62,9 +63,10 @@ try {
     #region 申请新证书
     Write-Information "⚠️ 未找到有效证书或已过期，开始申请新证书..."
     if (!(Test-Path $config.pfxFolder)) {
-        New-Item -ItemType Directory -Path $config.pfxFolder | Out-Null
+        New-Item -ItemType Directory -Path $config.pfxFolder -Force | Out-Null
+        Write-Information "📁 已创建证书存储目录：$($config.pfxFolder)"
     }
-    if (-not (Get-Item -Path "Env:$($config.cfEnvVarName)" -ErrorAction SilentlyContinue)) {
+    if (-not [Environment]::GetEnvironmentVariable($config.cfEnvVarName)) {
         throw "环境变量 $($config.cfEnvVarName) 未设置，请先设置环境变量"
     }
     Request-RdpCert -Config $config -PfxPassword $pfxPassword
