@@ -1,3 +1,9 @@
+Requires -Version 7.0
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+$PSDefaultParameterValues['*:ErrorAction'] = 'Stop'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 <#
 .SYNOPSIS
   智能申请并绑定 RDP 证书主流程脚本
