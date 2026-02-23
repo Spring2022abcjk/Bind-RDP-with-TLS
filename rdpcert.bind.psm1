@@ -41,7 +41,7 @@ function Set-RdpCertBinding {
     
     if ($PSCmdlet.ShouldProcess($targetInfo, "Set RDP Certificate Binding")) {
         Set-ItemProperty -Path $rdpRegPath -Name $regName -Value $thumbprintBytes
-        Write-Information "✅ RDP 证书已绑定：$($Cert.Thumbprint)" -ForegroundColor Green
+        Write-Information "✅ RDP 证书已绑定：$($Cert.Thumbprint)" 
     }
 }
 Export-ModuleMember -Function Set-RdpCertBinding
