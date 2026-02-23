@@ -34,6 +34,7 @@ function Set-RdpCertBinding {
     $regName = "SSLCertificateSHA1Hash"
 
     # 3. Thumbprint字符串 → 字节数组
+    # 使用 -split '(?<=\G.{2})' 将连续的指纹字符串按每 2 个字符拆分为十六进制对，然后转换为字节
     $thumbprintBytes = [byte[]]($Cert.Thumbprint -split '(?<=\G.{2})' | Where-Object { $_ } | ForEach-Object { [Convert]::ToByte($_, 16) })
 
     # 4. 写入注册表
