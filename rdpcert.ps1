@@ -39,7 +39,7 @@ try {
     $pfxPasswordVarName = "RDP_PFX_PASSWORD"
 
     if ([string]::IsNullOrWhiteSpace($config.pfxPassword)) {
-        $randomPw = New-RandomPassword
+        $randomPw = Get-RandomPassword
         [System.Environment]::SetEnvironmentVariable($pfxPasswordVarName, $randomPw, "User")
         Write-Information "未检测到 pfxPassword，已生成新密码写入环境变量 $pfxPasswordVarName"
         $pfxPassword = $randomPw | ConvertTo-SecureString -AsPlainText -Force

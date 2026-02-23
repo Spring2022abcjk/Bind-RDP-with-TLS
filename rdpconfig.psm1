@@ -57,7 +57,7 @@ function Import-RdpConfig {
 .SYNOPSIS
 生成高强度随机密码
 #>
-function New-RandomPassword {
+function Get-RandomPassword {
     [OutputType([string])]
     param(
         [int]$Length = 24
@@ -67,4 +67,4 @@ function New-RandomPassword {
     -join (1..$Length | ForEach-Object { $chars | Get-Random -Count 1 })
 }
 
-Export-ModuleMember -Function Import-RdpConfig, New-RandomPassword
+Export-ModuleMember -Function Import-RdpConfig, Get-RandomPassword
